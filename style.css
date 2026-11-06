@@ -1,0 +1,461 @@
+:root {
+    --background: #171614;
+    --cream: #d8c9b7;
+    --muted: #94877b;
+    --brown: #79675c;
+    --blue: #65717b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.grain {
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 100;
+    opacity: .12;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 30px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: #ad827b;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10%;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, #171614 5%, rgba(23, 22, 20, .8) 48%, rgba(23, 22, 20, .3)),
+        linear-gradient(0deg, #171614, transparent 40%),
+        url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1800") center/cover;
+    filter: sepia(.45) saturate(.65) brightness(.65);
+    transform: scale(1.1);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.eyebrow,
+.story-heading span,
+.quote-inner span {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #ae8880;
+}
+
+.hero h1,
+.ending h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 9vw, 115px);
+    line-height: .95;
+    font-weight: 400;
+    margin: 35px 0;
+}
+
+h1 i,
+h2 i {
+    color: #aa8881;
+    font-weight: 400;
+}
+
+.hero-text {
+    max-width: 350px;
+    line-height: 1.9;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.scroll-link {
+    display: inline-block;
+    margin-top: 60px;
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: 3px;
+    border-bottom: 1px solid #8d7770;
+    padding-bottom: 12px;
+}
+
+.hero-date {
+    position: absolute;
+    bottom: 35px;
+    right: 7%;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+.intro {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.handwriting {
+    font-family: 'Parisienne', cursive;
+    font-size: 30px;
+    color: #b38b83;
+}
+
+.intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 30px 0;
+}
+
+.intro-small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.story {
+    padding: 100px 8% 150px;
+}
+
+.story-heading {
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.story-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.line,
+.line-fill {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+.line {
+    background: #49413a;
+}
+
+.line-fill {
+    background: #a47d77;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+}
+
+.memory {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 55px;
+    margin-bottom: 110px;
+    position: relative;
+}
+
+.memory.left {
+    text-align: right;
+}
+
+.memory.right {
+    margin-left: 50%;
+}
+
+.memory::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 9px;
+    height: 9px;
+    background: #a47d77;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #a47d77;
+}
+
+.memory.left::before {
+    right: -5px;
+}
+
+.memory.right::before {
+    left: -4px;
+}
+
+.photo {
+    width: 100%;
+    height: 240px;
+    padding: 15px;
+    background: #b8a38e;
+    box-shadow: 0 15px 35px #0008;
+    display: flex;
+    align-items: end;
+    filter: sepia(.35) saturate(.7);
+    position: relative;
+}
+
+.photo span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #eee0d0;
+    position: relative;
+    z-index: 1;
+}
+
+.photo-one {
+    background:
+        linear-gradient(0deg, #151c26aa, transparent),
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800") center/cover;
+}
+
+.photo-two {
+    background:
+        linear-gradient(0deg, #151c26aa, transparent),
+        url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800") center/cover;
+}
+
+.photo-three {
+    background:
+        linear-gradient(0deg, #151c26aa, transparent),
+        url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800") center/cover;
+}
+
+.photo-four {
+    background:
+        linear-gradient(0deg, #151c26aa, transparent),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800") center/cover;
+}
+
+.memory-text {
+    padding: 5px 0;
+}
+
+.chapter {
+    font-size: 9px;
+    color: #ad827b;
+    letter-spacing: 3px;
+}
+
+.memory-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.memory-text p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.memory-text small {
+    display: block;
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #a68c81;
+}
+
+.quote-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+        linear-gradient(#171614c9, #171614e6),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600") center/cover;
+}
+
+.quote-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 75px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 40px 0;
+}
+
+.quote-inner p {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.ending {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.ending h1 {
+    margin: 35px 0;
+}
+
+.ending>p:not(.handwriting) {
+    max-width: 400px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2;
+}
+
+.ending-divider {
+    width: 50px;
+    height: 1px;
+    background: #a47d77;
+    margin: 45px 0;
+}
+
+.ending>span {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #ae8880;
+}
+
+.ending .handwriting {
+    margin-top: 50px;
+}
+
+footer {
+    border-top: 1px solid #38312b;
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #786c61;
+}
+
+@media(max-width: 650px) {
+    header {
+        padding: 25px 6%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 7px;
+    }
+
+    .hero {
+        padding: 8%;
+    }
+
+    .story {
+        padding: 80px 5%;
+    }
+
+    .story-heading {
+        margin-bottom: 80px;
+    }
+
+    .story-heading h2 {
+        font-size: 45px;
+    }
+
+    .line,
+    .line-fill {
+        left: 10px;
+    }
+
+    .memory,
+    .memory.right,
+    .memory.left {
+        width: 100%;
+        margin-left: 0;
+        padding: 25px 10px 25px 35px;
+        text-align: left;
+    }
+
+    .memory.left::before,
+    .memory.right::before {
+        left: 6px;
+        right: auto;
+    }
+
+    .photo {
+        height: 200px;
+    }
+
+    .memory-text h2 {
+        font-size: 32px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
